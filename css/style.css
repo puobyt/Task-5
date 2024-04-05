@@ -61,7 +61,8 @@ nav a {
 .content {
   height: 100%;
   width: calc(100% - 362px);
-  padding: 15px;
+  padding: 15px 15px 50px 15px;
+  overflow-y: auto;
 }
 .heading {
   display: flex;
@@ -88,6 +89,16 @@ table {
   width: 100%;
   margin-top: 15px;
 }
+table.table-color {
+  border-collapse: collapse;
+}
+.table-color tr {
+  border-bottom: 2px solid #555 !important;
+}
+.table-color tr:nth-child(odd),
+.table-color th:nth-child(even) {
+  background-color: lightgray;
+}
 table,
 th,
 td {
@@ -98,12 +109,31 @@ th {
   text-transform: uppercase;
   text-align: left;
 }
-th:first-child, td:first-child {
+th:first-child,
+td:first-child {
   text-align: center;
   width: 50px;
 }
 
-td,th{
-    padding: 15px;
+td,
+th {
+  padding: 15px;
 }
-
+caption {
+  padding-bottom: 15px;
+  font-size: 24px;
+  text-decoration: underline;
+}
+.table-color tr:hover {
+  background-color: #3cb989;
+  cursor: pointer;
+}
+@media only screen and (max-width: 767px) {
+  .sidebar {
+    display: none;
+  }
+  .content {
+    width: calc(100% -30px);
+    overflow-x: auto;
+  }
+}
